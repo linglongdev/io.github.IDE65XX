@@ -1,0 +1,49 @@
+From 8baeab37fe03114a6f9cff3b216e2caccad1e544 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sun, 11 Aug 2024 15:08:39 +0800
+Subject: [PATCH] install
+
+---
+ IDE65XX.desktop | 11 +++++++++++
+ IDE65xx.pro     |  9 +++++++++
+ 2 files changed, 20 insertions(+)
+ create mode 100644 IDE65XX.desktop
+
+diff --git a/IDE65XX.desktop b/IDE65XX.desktop
+new file mode 100644
+index 0000000..5eff547
+--- /dev/null
++++ b/IDE65XX.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=IDE65XX
++Name=IDE65XX
++Name[zh_CN]=IDE65XX
++Icon=ide65xx
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=IDE65XX
++Version=0.1.4
+diff --git a/IDE65xx.pro b/IDE65xx.pro
+index 5ba69c3..d3227da 100644
+--- a/IDE65xx.pro
++++ b/IDE65xx.pro
+@@ -89,3 +89,12 @@ DISTFILES += \
+ ICON = icon/ide65xx.icns
+ 
+ TARGET = IDE65XX
++
++
++target.path = $$PREFIX/bin
++desktop.files = IDE65XX.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons
++icons.files = icon/ide65xx.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
