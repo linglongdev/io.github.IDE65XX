@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.IDE65XX
+  name: IDE65XX
+  version: 0.1.4.1
+  kind: app
+  description: |
+    IDE 65XX is one of the open source IDE options available for developers working with Kick Assembler.
+
+command:
+  - /opt/apps/io.github.IDE65XX/files/bin/IDE65XX
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/emartisoft/IDE65XX.git
+    version: master
+    commit: d76bd3591d67ddd3b76e8cfc1a45d38fc62447b2
+
+build: |
+  cd /project/linglong/sources/IDE65XX.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install
